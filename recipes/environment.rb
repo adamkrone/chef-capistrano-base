@@ -7,15 +7,14 @@
 #
 #
 
-directory "#{node['capistrano_base']['app_deploy_root']}/shared" do
-  owner node['capistrano_base']['deployment_user']
-  group node['capistrano_base']['deployment_group']
-  action :create
-end
+template_variables = {
+  environment_variables: node['capistrano_base']['env_variables']
+}
 
-template "#{node['capistrano_base']['app_deploy_root']}/shared/.env" do
-  source '.env.erb'
+capistrano_shared_file '.env' do
+  path "#{node['capistrano_base']['app_deploy_root']}/shared"
+  template '.env.erb'
+  variables template_variables
   owner node['capistrano_base']['deployment_user']
   group node['capistrano_base']['deployment_group']
-  action :create
 end

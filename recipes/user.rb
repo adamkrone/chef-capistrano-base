@@ -7,14 +7,10 @@
 #
 #
 
-include_recipe "users"
+include_recipe 'capistrano-base'
 
-users_manage node['capistrano_base']['deployment_user'] do
-  group_id 3000
+capistrano_user node['capistrano_base']['deployment_user'] do
+  group node['capistrano_base']['deployment_group']
+  group_id node['capistrano_base']['deployment_group_id']
   action :create
-end
-
-sudo node['capistrano_base']['deployment_user'] do
-  user node['capistrano_base']['deployment_user']
-  nopasswd true
 end
