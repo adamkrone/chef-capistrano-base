@@ -12,6 +12,7 @@ define :capistrano_mysql do
 
   db_name = params[:name]
   db_user = params[:db_user]
+  db_user_host = params[:db_user_host] || 'localhost'
   db_password = params[:db_password]
   db_environments = params[:db_environments]
 
@@ -24,6 +25,7 @@ define :capistrano_mysql do
   mysql_database_user db_user do
     connection mysql_connection_info
     password db_password
+    host db_user_host
     action :create
   end
 

@@ -4,7 +4,7 @@ maintainer_email 'krone.adam@gmail.com'
 license          'Apache v2.0'
 description      'Installs/Configures capistrano-base'
 long_description 'Installs/Configures capistrano-base'
-version          '0.2.0'
+version          '0.3.0'
 
 
 depends 'apt'
