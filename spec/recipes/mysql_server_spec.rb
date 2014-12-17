@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'capistrano-base::mysql-server' do
+describe 'capistrano-base::mysql_server' do
   let(:chef_run) { ChefSpec::ServerRunner.new.converge(described_recipe) }
 
   it 'should include the mysql::server recipe' do

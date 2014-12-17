@@ -12,9 +12,9 @@ platforms:
 suites:
   - name: web-app-role
     run_list:
-      - recipe[capistrano-base::web-app-role]
+      - recipe[capistrano-base::web_app_role]
     attributes:
   - name: mysql-role
     run_list:
-      - recipe[capistrano-base::mysql-role]
+      - recipe[capistrano-base::mysql_role]
     attributes:

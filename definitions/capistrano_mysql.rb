@@ -17,9 +17,9 @@ define :capistrano_mysql do
   db_environments = params[:db_environments]
 
   mysql_connection_info = {
-    :host     => 'localhost',
-    :username => 'root',
-    :password => params[:mysql_root_password]
+    host:     'localhost',
+    username: 'root',
+    password: params[:mysql_root_password]
   }
 
   mysql_database_user db_user do

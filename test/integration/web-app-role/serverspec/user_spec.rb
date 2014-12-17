@@ -2,7 +2,7 @@ require 'serverspec'
 
 set :backend, :exec
 
-describe "User" do
+describe 'User' do
   describe user('deploy') do
     it { should exist }
     it { should belong_to_group 'deploy' }

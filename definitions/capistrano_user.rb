@@ -7,7 +7,6 @@
 #
 #
 
-
 define :capistrano_user do
   include_recipe 'users'
 

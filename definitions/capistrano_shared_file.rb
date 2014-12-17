@@ -7,9 +7,7 @@
 #
 #
 
-
-define :capistrano_shared_file, :variables => {} do
-
+define :capistrano_shared_file, variables: {} do
   params[:template] ||= "#{params[:name]}.erb}"
 
   directory params[:path] do

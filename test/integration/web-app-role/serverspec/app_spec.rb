@@ -2,7 +2,7 @@ require 'serverspec'
 
 set :backend, :exec
 
-describe "App" do
+describe 'App' do
   describe file('/etc/apache2/sites-available/app.conf') do
     it { should be_file }
     it { should contain 'DocumentRoot /var/www/current' }
