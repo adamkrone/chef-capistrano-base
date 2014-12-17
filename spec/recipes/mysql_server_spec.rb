@@ -1,7 +1,13 @@
 require 'spec_helper'
 
 describe 'capistrano-base::mysql_server' do
-  let(:chef_run) { ChefSpec::ServerRunner.new.converge(described_recipe) }
+  let(:chef_run) do
+    ChefSpec::SoloRunner.new do |node|
+      node.set['mysql']['server_debian_password'] = 'password'
+      node.set['mysql']['server_root_password'] = 'password'
+      node.set['mysql']['server_repl_password'] = 'password'
+    end.converge(described_recipe)
+  end
 
   before do
     stub_command("\"/usr/bin/mysql\" -u root -e 'show databases;'")
