@@ -18,3 +18,5 @@ suites:
     run_list:
       - recipe[capistrano-base::mysql_role]
     attributes:
+      mysql:
+        server_root_password: ilikerandompasswords
