@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe 'capistrano-base::app' do
-  let(:chef_run) { ChefSpec::SoloRunner.new.converge(described_recipe) }
+  let(:chef_run) do
+    ChefSpec::SoloRunner.new(step_into: ['capistrano_app']).converge(described_recipe)
+  end
 
   before do
     stub_command('/usr/sbin/apache2 -t').and_return(true)
