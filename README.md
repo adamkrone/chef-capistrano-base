@@ -1,7 +1,7 @@
 # capistrano-base
 
 [![Latest Version](http://img.shields.io/github/release/adamkrone/chef-capistrano-base.svg?style=flat-square)][release]
-[![Build Status](http://img.shields.io/travis-ci/adamkrone/chef-capistrano-base.svg?style=flat-square)][build]
+[![Build Status](http://img.shields.io/travis-ci/adamkrone/chef-capistrano-base.svg?branch=master&style=flat-square)][build]
 [![Coverage Status](https://img.shields.io/coveralls/adamkrone/chef-capistrano-base.svg?style=flat-square)][coverage]
 
 [release]: https://github.com/adamkrone/chef-capistrano-base/releases
