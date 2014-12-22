@@ -12,9 +12,9 @@ template_variables = {
 }
 
 capistrano_shared_file '.env' do
-  path "#{node['capistrano_base']['app_deploy_root']}/shared"
   template '.env.erb'
-  variables template_variables
+  deploy_root node['capistrano_base']['app_deploy_root']
   owner node['capistrano_base']['deployment_user']
   group node['capistrano_base']['deployment_group']
+  variables template_variables
 end

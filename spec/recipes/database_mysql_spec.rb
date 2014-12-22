@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'capistrano-base::database_mysql' do
   let(:chef_run) do
-    ChefSpec::SoloRunner.new do |node|
+    ChefSpec::SoloRunner.new(step_into: ['capistrano_mysql_database']) do |node|
       node.set['mysql']['server_debian_password'] = 'password'
       node.set['mysql']['server_root_password'] = 'password'
       node.set['mysql']['server_repl_password'] = 'password'

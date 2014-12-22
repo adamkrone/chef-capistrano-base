@@ -23,7 +23,7 @@ describe 'capistrano-base::web_app_role' do
     expect(chef_run).to include_recipe('capistrano-base::nodejs')
   end
 
-  it 'should include the capistrano-base::apache2 recipe' do
+  xit 'should include the capistrano-base::apache2 recipe' do
     expect(chef_run).to include_recipe('capistrano-base::apache2')
   end
 

@@ -7,9 +7,11 @@
 #
 #
 
-capistrano_mysql node['capistrano_base']['db']['name'] do
-  mysql_root_password node['mysql']['server_root_password']
-  db_user node['capistrano_base']['db']['user']
-  db_password node['capistrano_base']['db']['user_password']
-  db_environments node['capistrano_base']['db']['environments']
+node['capistrano_base']['db']['environments'].each do |env|
+  capistrano_mysql_database env do
+    app_name node['capistrano_base']['app_name']
+    mysql_root_password node['mysql']['server_root_password']
+    user node['capistrano_base']['db']['user']
+    user_password node['capistrano_base']['db']['user_password']
+  end
 end
