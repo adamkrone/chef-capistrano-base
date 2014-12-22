@@ -16,6 +16,7 @@ class Chef
       attribute :deployment_group, kind_of: String, default: 'deploy'
       attribute :server_name, kind_of: String, default: nil
       attribute :server_aliases, kind_of: Array, default: []
+      attribute :apache_mpm, kind_of: String, default: nil
 
       def web_app_cookbook
         return cookbook if cookbook

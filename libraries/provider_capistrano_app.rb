@@ -13,7 +13,7 @@ class Chef
         recipe_eval do
           node.normal['apache']['user'] = new_resource.deployment_user
           node.normal['apache']['group'] = new_resource.deployment_group
-          node.normal['apache']['mpm'] = 'event'
+          node.normal['apache']['mpm'] = new_resource.apache_mpm if new_resource.apache_mpm
           run_context.include_recipe 'apache2::default'
         end
 
