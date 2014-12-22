@@ -18,14 +18,14 @@ class Chef
       attribute :server_aliases, kind_of: Array, default: []
 
       def web_app_cookbook
-	return cookbook if cookbook
-	return 'capistrano-base' unless template
-	nil
+        return cookbook if cookbook
+        return 'capistrano-base' unless template
+        nil
       end
 
       def web_app_template
-	return template if template
-	'web_app.conf.erb'
+        return template if template
+        'web_app.conf.erb'
       end
     end
   end

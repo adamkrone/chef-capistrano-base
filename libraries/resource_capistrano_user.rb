@@ -12,8 +12,8 @@ class Chef
       attribute :group_id, kind_of: Integer, required: true
 
       def group_name
-	return group if group
-	name
+        return group if group
+        name
       end
     end
   end

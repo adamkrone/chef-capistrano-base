@@ -17,8 +17,8 @@ class Chef
 
     def mysql_connection_info
       { host:     'localhost',
-	username: 'root',
-	password: mysql_root_password }
+        username: 'root',
+        password: mysql_root_password }
     end
 
     def database_name

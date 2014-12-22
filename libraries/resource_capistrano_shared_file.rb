@@ -15,11 +15,11 @@ class Chef
       attribute :variables, kind_of: Hash, default: {}
 
       def shared_directory
-	"#{deploy_root}/shared"
+        "#{deploy_root}/shared"
       end
 
       def target_file
-	"#{shared_directory}/#{file}"
+        "#{shared_directory}/#{file}"
       end
     end
   end

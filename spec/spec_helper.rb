@@ -1,6 +1,7 @@
 require 'chefspec'
 require 'chefspec/berkshelf'
 require 'coveralls'
+require 'pry'
 
 require_relative 'support/matchers'
 
