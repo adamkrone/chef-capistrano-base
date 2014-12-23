@@ -3,6 +3,7 @@ require 'chef/provider/lwrp_base'
 class Chef
   class Provider
     class CapistranoMysqlDatabase < Chef::Provider::LWRPBase
+      include Chef::DSL::IncludeRecipe
       use_inline_resources if defined?(use_inline_resources)
 
       def whyrun_supported?
@@ -10,9 +11,7 @@ class Chef
       end
 
       action :create do
-        recipe_eval do
-          run_context.include_recipe 'database::mysql'
-        end
+        include_recipe 'database::mysql'
 
         mysql_database_user new_resource.user do
           connection new_resource.mysql_connection_info

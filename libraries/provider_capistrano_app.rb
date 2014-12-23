@@ -3,6 +3,7 @@ require 'chef/provider/lwrp_base'
 class Chef
   class Provider
     class CapistranoApp < Chef::Provider::LWRPBase
+      include Chef::DSL::IncludeRecipe
       use_inline_resources if defined?(use_inline_resources)
 
       def whyrun_supported?
@@ -10,12 +11,10 @@ class Chef
       end
 
       action :create do
-        recipe_eval do
-          node.normal['apache']['user'] = new_resource.deployment_user
-          node.normal['apache']['group'] = new_resource.deployment_group
-          node.normal['apache']['mpm'] = new_resource.apache_mpm if new_resource.apache_mpm
-          run_context.include_recipe 'apache2::default'
-        end
+        node.normal['apache']['user'] = new_resource.deployment_user
+        node.normal['apache']['group'] = new_resource.deployment_group
+        node.normal['apache']['mpm'] = new_resource.apache_mpm if new_resource.apache_mpm
+        include_recipe 'apache2::default'
 
         service 'apache2'
 
