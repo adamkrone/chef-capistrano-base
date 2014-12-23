@@ -13,7 +13,6 @@ class Chef
       action :create do
         node.normal['apache']['user'] = new_resource.deployment_user
         node.normal['apache']['group'] = new_resource.deployment_group
-        node.normal['apache']['mpm'] = new_resource.apache_mpm if new_resource.apache_mpm
         include_recipe 'apache2::default'
 
         service 'apache2'
