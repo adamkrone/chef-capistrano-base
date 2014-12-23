@@ -11,6 +11,7 @@ class Chef
       end
 
       action :create do
+        node.normal['apache']['docroot_dir'] = '/var/www'
         node.normal['apache']['user'] = new_resource.deployment_user
         node.normal['apache']['group'] = new_resource.deployment_group
         include_recipe 'apache2::default'
