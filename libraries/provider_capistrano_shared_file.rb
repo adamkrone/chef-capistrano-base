@@ -17,6 +17,7 @@ class Chef
         end
 
         template new_resource.target_file do
+          cookbook new_resource.cookbook if new_resource.cookbook
           source new_resource.template
           owner new_resource.owner
           group new_resource.group
