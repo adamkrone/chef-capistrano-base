@@ -1,6 +1,6 @@
 name             'capistrano-base'
 maintainer       'Adam Krone'
-maintainer_email 'krone.adam@gmail.com'
+maintainer_email 'adam.krone@thirdwavellc.com'
 license          'Apache v2.0'
 description      'Installs/Configures capistrano-base'
 long_description 'Installs/Configures capistrano-base'
