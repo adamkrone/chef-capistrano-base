@@ -31,9 +31,10 @@ class Chef
       end
 
       action :create do
-        node.normal['apache']['docroot_dir'] = '/var/www'
+        node.normal['apache']['docroot_dir'] = new_resource.deploy_root
         node.normal['apache']['user'] = new_resource.deployment_user
         node.normal['apache']['group'] = new_resource.deployment_group
+
         include_recipe 'apache2::default'
 
         service 'apache2'
@@ -45,8 +46,15 @@ class Chef
           action :create
         end
 
-        params_cookbook = new_resource.web_app_cookbook
-        params_template = new_resource.web_app_template
+        directory new_resource.app_root do
+          owner new_resource.deployment_user
+          group new_resource.deployment_group
+          recursive true
+          action :create
+        end
+
+        params_cookbook = new_resource.cookbook
+        params_template = new_resource.template
         params_docroot = new_resource.docroot
         params_server_name = new_resource.server_name
         params_server_aliases = new_resource.server_aliases
@@ -61,12 +69,12 @@ class Chef
       end
 
       action :delete do
-        directory new_resource.deploy_root do
+        directory new_resource.app_root do
           recursive true
           action :delete
         end
 
-        web_app new_resource.deploy_root do
+        web_app new_resource.name do
           enable false
         end
       end

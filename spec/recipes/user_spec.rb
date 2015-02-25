@@ -1,8 +1,12 @@
 require 'spec_helper'
 
-describe 'capistrano-base::user' do
+describe 'capistrano-base-test::user' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new(step_into: ['capistrano_user']).converge(described_recipe)
+  end
+
+  it 'should create capistrano_user[deploy]' do
+    expect(chef_run).to create_capistrano_user('deploy')
   end
 
   it 'should create the deploy user' do

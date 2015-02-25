@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: capistrano-base
-# Recipe:: ssh
+# Cookbook Name:: capistrano-base-test
+# Recipe:: environment
 #
 # Copyright 2014 Adam Krone <adam.krone@thirdwavellc.com>
 # Copyright 2014 Thirdwave, LLC
@@ -18,6 +18,7 @@
 # limitations under the License.
 #
 
-node.normal['ssh']['allow_agent_forwarding'] = true
-
-include_recipe 'ssh-hardening::default'
+capistrano_shared_file '.env' do
+  app_root '/var/www/my-app'
+  template '.env.erb'
+end

@@ -11,3 +11,7 @@ cookbook 'nodejs'
 cookbook 'apache2', '~> 3.0'
 cookbook 'mysql', '~> 5.0'
 cookbook 'database'
+
+group :test do
+  cookbook 'capistrano-base-test', path: 'spec/fixtures/cookbooks/capistrano-base-test'
+end

@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - 'metadata.rb'
+    - 'spec/fixtures/**/*'
 
 Metrics/LineLength:
   Max: 100

@@ -40,27 +40,25 @@ class Chef
           action :create
         end
 
-        Chef::Log.info("Creating database: #{new_resource.database_name}")
+        Chef::Log.info("Creating database: #{new_resource.db_name}")
 
-        mysql_database new_resource.database_name do
+        mysql_database new_resource.db_name do
           connection new_resource.mysql_connection_info
           action :create
         end
 
         mysql_database_user new_resource.user do
           connection new_resource.mysql_connection_info
-          database_name new_resource.database_name
+          database_name new_resource.db_name
           privileges [:all]
           action :grant
         end
       end
 
       action :delete do
-        recipe_eval do
-          run_context.include_recipe 'database::mysql'
-        end
+        include_recipe 'database::mysql'
 
-        mysql_database new_resource.database_name do
+        mysql_database new_resource.db_name do
           action :delete
         end
 

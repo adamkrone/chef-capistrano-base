@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: capistrano-base
-# Recipe:: environment
+# Cookbook Name:: capistrano-base-test
+# Recipe:: web-app-role
 #
 # Copyright 2014 Adam Krone <adam.krone@thirdwavellc.com>
 # Copyright 2014 Thirdwave, LLC
@@ -18,14 +18,8 @@
 # limitations under the License.
 #
 
-template_variables = {
-  environment_variables: node['capistrano_base']['env_variables']
-}
-
-capistrano_shared_file '.env' do
-  template '.env.erb'
-  deploy_root node['capistrano_base']['app_deploy_root']
-  owner node['capistrano_base']['deployment_user']
-  group node['capistrano_base']['deployment_group']
-  variables template_variables
-end
+include_recipe 'apt::default'
+include_recipe 'capistrano-base-test::user'
+include_recipe 'capistrano-base-test::ssh'
+include_recipe 'capistrano-base-test::app'
+include_recipe 'capistrano-base-test::environment'

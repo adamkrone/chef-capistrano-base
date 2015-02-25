@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: capistrano-user
-# Recipe:: user
+# Cookbook Name:: capistrano-base-test
+# Recipe:: ssh
 #
 # Copyright 2014 Adam Krone <adam.krone@thirdwavellc.com>
 # Copyright 2014 Thirdwave, LLC
@@ -18,10 +18,6 @@
 # limitations under the License.
 #
 
-include_recipe 'capistrano-base'
+node.normal['ssh']['allow_agent_forwarding'] = true
 
-capistrano_user node['capistrano_base']['deployment_user'] do
-  group node['capistrano_base']['deployment_group']
-  group_id node['capistrano_base']['deployment_group_id']
-  action :create
-end
+include_recipe 'ssh-hardening::default'

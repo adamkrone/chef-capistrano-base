@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: capistrano-base
-# Recipe:: apache2
+# Cookbook Name:: capistrano-base-test
+# Recipe:: user
 #
 # Copyright 2014 Adam Krone <adam.krone@thirdwavellc.com>
 # Copyright 2014 Thirdwave, LLC
@@ -18,8 +18,7 @@
 # limitations under the License.
 #
 
-node.normal['apache']['user'] = node['capistrano_base']['deployment_user']
-node.normal['apache']['group'] = node['capistrano_base']['deployment_group']
-node.normal['apache']['mpm'] = 'event'
-
-include_recipe 'apache2::default'
+capistrano_user 'deploy' do
+  group_id 3000
+  action :create
+end

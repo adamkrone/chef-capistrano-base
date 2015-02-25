@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe 'capistrano-base::mysql_server' do
+describe 'capistrano-base-test::mysql_server' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new do |node|
-      node.set['mysql']['server_debian_password'] = 'password'
-      node.set['mysql']['server_root_password'] = 'password'
-      node.set['mysql']['server_repl_password'] = 'password'
+      node.set['mysql']['server_debian_password'] = 'my-root-password'
+      node.set['mysql']['server_root_password'] = 'my-root-password'
+      node.set['mysql']['server_repl_password'] = 'my-root-password'
     end.converge(described_recipe)
   end
 

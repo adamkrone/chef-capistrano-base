@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: capistrano-base
-# Recipe:: mysql-server
+# Cookbook Name:: capistrano-base-test
+# Recipe:: app
 #
 # Copyright 2014 Adam Krone <adam.krone@thirdwavellc.com>
 # Copyright 2014 Thirdwave, LLC
@@ -18,4 +18,6 @@
 # limitations under the License.
 #
 
-include_recipe 'mysql::server'
+capistrano_app 'my-app' do
+  server_name 'my-app.com'
+end

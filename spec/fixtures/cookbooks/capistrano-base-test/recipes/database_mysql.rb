@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: capistrano-base
-# Recipe:: app
+# Cookbook Name:: capistrano-base-test
+# Recipe:: database-mysql
 #
 # Copyright 2014 Adam Krone <adam.krone@thirdwavellc.com>
 # Copyright 2014 Thirdwave, LLC
@@ -18,10 +18,8 @@
 # limitations under the License.
 #
 
-capistrano_app node['capistrano_base']['app_name'] do
-  template node['capistrano_base']['app_template']
-  deploy_root node['capistrano_base']['app_deploy_root']
-  docroot node['capistrano_base']['app_docroot']
-  deployment_user node['capistrano_base']['deployment_user']
-  deployment_group node['capistrano_base']['deployment_group']
+capistrano_mysql_database 'my_app_production' do
+  user 'my-app'
+  user_password 'my-app-password'
+  mysql_root_password 'my-root-password'
 end

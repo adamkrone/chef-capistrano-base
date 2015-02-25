@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: capistrano-base
-# Recipe:: mysql-role
+# Cookbook Name:: capistrano-base-test
+# Recipe:: default
 #
 # Copyright 2014 Adam Krone <adam.krone@thirdwavellc.com>
 # Copyright 2014 Thirdwave, LLC
@@ -17,9 +17,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-include_recipe 'apt::default'
-include_recipe 'capistrano-base::user'
-include_recipe 'capistrano-base::ssh'
-include_recipe 'capistrano-base::mysql_server'
-include_recipe 'capistrano-base::database_mysql'
