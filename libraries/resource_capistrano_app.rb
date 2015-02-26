@@ -31,6 +31,7 @@ class Chef
       attribute :cookbook, kind_of: String, default: 'capistrano-base'
       attribute :template, kind_of: String, default: 'web_app.conf.erb'
       attribute :deploy_root, kind_of: String, default: '/var/www'
+      attribute :web_root, kind_of: String, default: nil
       attribute :deployment_user, kind_of: String, default: 'deploy'
       attribute :deployment_group, kind_of: String, default: 'deploy'
       attribute :server_name, kind_of: String, required: true
@@ -41,6 +42,7 @@ class Chef
       end
 
       def docroot
+        return "#{app_root}/current/#{web_root}" if web_root
         "#{app_root}/current"
       end
     end
