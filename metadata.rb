@@ -4,7 +4,7 @@ maintainer_email 'adam.krone@thirdwavellc.com'
 license          'Apache v2.0'
 description      'Installs/Configures capistrano-base'
 long_description 'Installs/Configures capistrano-base'
-version          '0.3.0'
+version          '1.0.0'
 
 
 depends 'apt'
