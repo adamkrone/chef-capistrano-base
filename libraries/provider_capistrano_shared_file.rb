@@ -24,6 +24,7 @@ class Chef
   class Provider
     class CapistranoSharedFile < Chef::Provider::LWRPBase
       use_inline_resources if defined?(use_inline_resources)
+      provides :capistrano_shared_file
 
       def whyrun_supported?
         true

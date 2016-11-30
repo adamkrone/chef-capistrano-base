@@ -25,6 +25,7 @@ class Chef
     class CapistranoMysqlDatabase < Chef::Provider::LWRPBase
       include Chef::DSL::IncludeRecipe
       use_inline_resources if defined?(use_inline_resources)
+      provides :capistrano_mysql_database
 
       def whyrun_supported?
         true
