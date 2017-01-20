@@ -15,3 +15,6 @@ depends 'nodejs'
 depends 'apache2', '~> 3.0'
 depends 'mysql', '~> 5.0'
 depends 'database', '~> 2.3.1'
+
+issues_url 'https://github.com/thirdwavellc/chef-capistrano-base/issues' if respond_to?(:issues_url)
+source_url 'https://github.com/thirdwavellc/chef-capistrano-base' if respond_to?(:source_url)
