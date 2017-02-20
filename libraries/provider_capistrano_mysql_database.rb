@@ -32,8 +32,6 @@ class Chef
       end
 
       action :create do
-        include_recipe 'database::mysql'
-
         mysql_database_user new_resource.user do
           connection new_resource.mysql_connection_info
           password new_resource.user_password
@@ -57,8 +55,6 @@ class Chef
       end
 
       action :delete do
-        include_recipe 'database::mysql'
-
         mysql_database new_resource.db_name do
           action :delete
         end
