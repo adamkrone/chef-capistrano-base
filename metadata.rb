@@ -10,8 +10,11 @@ version          '1.0.0'
 depends 'apt'
 depends 'users'
 depends 'sudo'
-depends 'ssh-hardening', '1.0.2'
+depends 'ssh-hardening'
 depends 'nodejs'
-depends 'apache2', '~> 3.0'
-depends 'mysql', '~> 5.0'
-depends 'database', '~> 2.3.1'
+depends 'apache2'
+depends 'mysql'
+depends 'database'
+
+issues_url 'https://github.com/thirdwavellc/chef-capistrano-base/issues' if respond_to?(:issues_url)
+source_url 'https://github.com/thirdwavellc/chef-capistrano-base' if respond_to?(:source_url)

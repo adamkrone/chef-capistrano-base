@@ -25,14 +25,13 @@ class Chef
     class CapistranoMysqlDatabase < Chef::Provider::LWRPBase
       include Chef::DSL::IncludeRecipe
       use_inline_resources if defined?(use_inline_resources)
+      provides :capistrano_mysql_database
 
       def whyrun_supported?
         true
       end
 
       action :create do
-        include_recipe 'database::mysql'
-
         mysql_database_user new_resource.user do
           connection new_resource.mysql_connection_info
           password new_resource.user_password
@@ -56,8 +55,6 @@ class Chef
       end
 
       action :delete do
-        include_recipe 'database::mysql'
-
         mysql_database new_resource.db_name do
           action :delete
         end

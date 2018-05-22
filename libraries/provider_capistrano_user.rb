@@ -24,6 +24,7 @@ class Chef
   class Provider
     class CapistranoUser < Chef::Provider::LWRPBase
       use_inline_resources if defined?(use_inline_resources)
+      provides :capistrano_user
 
       def whyrun_supported?
         true

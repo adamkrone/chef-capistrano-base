@@ -40,4 +40,9 @@ describe 'capistrano-base-test::app' do
   it 'should create the /etc/apache2/sites-enabled/app.conf template' do
     expect(chef_run).to create_template('/etc/apache2/sites-available/my-app.conf')
   end
+
+  it 'should enable/start service[apache2]' do
+    expect(chef_run).to enable_service('apache2')
+    expect(chef_run).to start_service('apache2')
+  end
 end
