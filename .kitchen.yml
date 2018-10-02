@@ -14,9 +14,3 @@ suites:
     run_list:
       - recipe[capistrano-base-test::web_app_role]
     attributes:
-  - name: mysql-role
-    run_list:
-      - recipe[capistrano-base-test::mysql_role]
-    attributes:
-      mysql:
-        server_root_password: my-root-password

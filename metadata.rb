@@ -13,8 +13,6 @@ depends 'sudo'
 depends 'ssh-hardening'
 depends 'nodejs'
 depends 'apache2'
-depends 'mysql'
-depends 'database'
 
 issues_url 'https://github.com/thirdwavellc/chef-capistrano-base/issues' if respond_to?(:issues_url)
 source_url 'https://github.com/thirdwavellc/chef-capistrano-base' if respond_to?(:source_url)

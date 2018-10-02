@@ -44,28 +44,6 @@ capistrano_app 'my-app' do
 end
 ```
 
-### capistrano_mysql_database
-
-**Attributes:**
-
-| Name                | Description                                     | Type   | Required | Default     |
-| ------------------- | ----------------------------------------------- | ------ | -------- | ----------- |
-| db_name             | Name of MySQL database.                         | String | true     | N/A         |
-| user                | MySQL User that owns the database.              | String | true     | N/A         |
-| user_host           | Host the database is on.                        | String | false    | 'localhost' |
-| user_password       | Password for MySQL user that owns the database. | String | true     | N/A         |
-| mysql_root_password | Password for MySQL root user.                   | String | true     | N/A         |
-
-**Example:**
-
-```ruby
-capistrano_mysql_database 'my_app_production' do
-  user 'my-app'
-  user_password 'my-app-password'
-  mysql_root_password 'my-root-password'
-end
-```
-
 ### capistrano_shared_file
 
 **Attributes:**
